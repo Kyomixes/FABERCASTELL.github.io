@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion Footer</title>
+<style>
+  .accordion {
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .panel:last-child {
+    border-bottom: none;
+  }
+
+  .arrow-down {
+    float: right;
+    margin-right: 10px;
+    transition: transform 0.4s;
+  }
+
+  .accordion.active .arrow-down {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<footer>
+  <button class="accordion">Our Products <span class="arrow-down">&#9660;</span></button>
+  <div class="panel">
+    <p>Graphite pencils<br/>Coloured pencils<br/>Fountain pens<br/>Rollerball pens<br/>Fineliner and Fiber tip pens<br/>Artists colours<br/>Ballpoint pens<br/>Markers<br/>Crayons<br/>Compasses<br/>Technical drawing<br/>Eraser<br/>Sharpener<br/>Equipment<br/>Refill<br/></p>
+  </div>
+
+  <button class="accordion">Inspiration <span class="arrow-down">&#9660;</span></button>
+  <div class="panel">
+    <p>Artist<br/>Children<br/></p>
+  </div>
+
+  <button class="accordion">Company <span class="arrow-down">&#9660;</span></button>
+  <div class="panel">
+    <p>Sustainability at Faber-Castell<br/>Faber-Castell Experience<br/>History<br/>Corporate Essentials<br/>Facts & Figures<br/></p>
+  </div>
+
+  <button class="accordion">Service <span class="arrow-down">&#9660;</span></button>
+  <div class="panel">
+    <p>Customer Service<br/>Media data bases<br/>Address worldwide<br/>Press<br/></p>
+  </div>
+</footer>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
